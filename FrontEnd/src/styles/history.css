@@ -1,0 +1,461 @@
+/* Estilos para la página de historial de registros */
+
+/* Solucionar el contenedor de búsqueda para eliminar doble hover */
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    border: none;
+    height: 41px;
+    box-sizing: border-box;
+    min-width: 300px;
+    transition: none;
+    position: relative;
+}
+
+/* Estilos para el input de búsqueda - Eliminar padding izquierdo adicional */
+.search-input {
+    position: relative;
+    border: 1px solid #ddd !important;
+    outline: none;
+    flex-grow: 1;
+    padding: 0 50px 0 15px; /* Reducir padding izquierdo a 15px (antes 35px) */
+    font-size: 14px;
+    width: 100%;
+    height: 41px;
+    box-sizing: border-box;
+    border-color: var(--gray) !important;
+    border-width: 1.5px !important;
+    border-radius: 4px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Botón de búsqueda corregido para que coincida con la altura exacta del input */
+.search-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 41px; /* Altura explícita igual que el input */
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    padding: 0 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box; /* Asegurar que padding y border no aumenten la altura */
+}
+
+.search-button:hover {
+    background-color: #003d7a;
+}
+
+.search-input:hover {
+    border-color: #0056b3 !important;
+}
+
+.search-input:focus {
+    border-color: #0056b3 !important;
+    box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.1) !important;
+}
+
+.search-input::placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+/* Asegurar ancho consistente del contenedor principal */
+.dashboard-section {
+    width: 101% !important;
+    min-width: 100% !important;
+    box-sizing: border-box !important;
+    transition: none !important; /* Evitar transiciones que puedan causar cambios de tamaño */
+    overflow: hidden; /* Prevenir desbordamiento que puede causar cambios de ancho */
+}
+
+/* Asegurar que la sección se mantiene estable durante la carga */
+.section-header {
+    display: flex;
+    justify-content: space-between; /* Separar título y buscador */
+    align-items: center;
+    width: 100% !important;
+    min-width: 100% !important;
+    margin-bottom: 20px;
+    box-sizing: border-box !important;
+    flex-wrap: nowrap; /* Prevenir salto de línea en pantallas medianas */
+}
+
+.section-title-container {
+    flex-shrink: 0; /* Evitar que se encoja */
+}
+
+/* Solucionar el contenedor de filtros para mantener ancho consistente */
+.filters-container {
+    width: 100% !important;
+    min-width: 100% !important;
+    box-sizing: border-box !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group label {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.filter-group select,
+.filter-group input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    min-width: 150px;
+    height: 41px; /* Altura estandarizada */
+    box-sizing: border-box;
+}
+
+.reset-filters-btn {
+    margin-left: auto;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 41px; /* Misma altura que los selectores */
+    box-sizing: border-box;
+    align-self: flex-end; /* Alinea con la parte inferior donde están los inputs */
+    margin-top: 22px; /* Compensar por el espacio que ocupa la etiqueta */
+}
+
+.reset-filters-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.user-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-icon {
+    background-color: #e8f4fe;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.username {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.user-role {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Enhanced pagination styles */
+.pagination-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.pagination-info {
+    font-size: 14px;
+    color: #666;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.pagination button {
+    border: 1px solid #ddd;
+    background-color: white;
+    padding: 8px 12px;
+    cursor: pointer;
+    min-width: 35px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.pagination button.active {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+.pagination button:hover:not(.active):not(:disabled) {
+    background-color: #f0f0f0;
+}
+
+.pagination button:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination-arrow {
+    font-size: 12px;
+}
+
+.pagination-ellipsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+    color: #666;
+}
+
+.export-buttons {
+    display: flex;
+    gap: 10px;
+    align-self: flex-end; /* Alinea con la parte inferior */
+    margin-top: 22px; /* Compensar por el espacio que ocupa la etiqueta */
+}
+
+.export-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 15px;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    height: 41px; /* Misma altura que los otros controles */
+    box-sizing: border-box;
+}
+
+.export-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.pdf-btn {
+    background-color: #dc3545;
+}
+
+.pdf-btn:hover {
+    background-color: #c82333;
+}
+
+.pdf-btn:disabled {
+    background-color: #e0a0a8;
+}
+
+.excel-btn {
+    background-color: #28a745;
+}
+
+.excel-btn:hover {
+    background-color: #218838;
+}
+
+.excel-btn:disabled {
+    background-color: #a0d0b0;
+}
+
+@media screen and (max-width: 1200px) {
+    .dashboard-content {
+        padding: 15px !important;
+        width: 100% !important;
+    }
+    
+    .filters-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .filter-group {
+        width: 100%;
+    }
+    
+    .reset-filters-btn {
+        margin-left: 0;
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+        align-self: stretch;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-container {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+        min-width: 100%;
+    }
+    
+    .export-buttons {
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+        align-self: stretch;
+    }
+    
+    .export-btn {
+        flex: 1;
+        justify-content: center;
+    }
+    
+    .patient-table {
+        min-width: 600px !important; /* Hacerlo un poco más pequeño para tablets */
+    }
+    
+    .pagination {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard-header h1 {
+        font-size: 24px;
+    }
+    
+    .welcome-text {
+        font-size: 14px;
+    }
+    
+    .section-title-container {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .section-header h2 {
+        font-size: 18px;
+    }
+    
+    .patient-table-container {
+        max-height: 400px;
+        overflow-y: auto;
+        margin-bottom: 15px;
+    }
+    
+    .patient-table {
+        font-size: 12px;
+    }
+    
+    .pagination button {
+        min-width: 30px;
+        padding: 6px 8px;
+    }
+    
+    .pagination-info {
+        font-size: 12px;
+    }
+    
+    .search-input {
+        font-size: 13px;
+        height: 38px; /* Altura más pequeña en móviles */
+    }
+    
+    .search-button {
+        height: 38px; /* Asegurar que la altura coincida con el input en móviles */
+    }
+    
+    .filter-group label {
+        font-size: 11px;
+    }
+    
+    .filter-group select,
+    .filter-group input {
+        font-size: 13px;
+        height: 38px;
+    }
+    
+    .search-button,
+    .reset-filters-btn,
+    .export-btn {
+        height: 38px;
+        font-size: 13px;
+    }
+}
+
+/* Específico para móviles muy pequeños */
+@media screen and (max-width: 480px) {
+    .dashboard-content {
+        padding: 10px !important;
+    }
+    
+    .section-header h2 {
+        font-size: 16px;
+    }
+    
+    .pagination-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Estilos para la columna de detalles del cambio */
+.patient-table td:last-child {
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.patient-table .details-link {
+    color: var(--primary-blue);
+    text-decoration: underline;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.patient-table .details-link:hover {
+    color: #004494;
+}
+
+.patient-table .details-icon {
+    font-size: 14px;
+}

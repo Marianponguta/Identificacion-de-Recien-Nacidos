@@ -1,0 +1,734 @@
+/* src/styles/login.css */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-blue: #055AAB;
+    --hover-blue: #0A6BC2;
+    --white: #FFFFFF;
+    --gray: #A6A6A6;
+    --green: #66AD41;
+    --hover-green: #77b759;
+    --black: #000000;
+    --error-red: #ff3333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Instrument Sans', sans-serif;
+}
+
+.login-page {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.login-left {
+    width: 50%;
+    background-color: var(--white);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-right {
+    width: 50%;
+    background-color: var(--primary-blue);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Logo positioning to top-left */
+.logo-container {
+    align-self: flex-start;
+    margin-bottom: 1rem;
+    margin-top: -2rem;
+}
+
+.logo-container img {
+    max-width: 250px;
+    height: auto;
+}
+
+/* Align welcome container with input fields */
+.welcome-container {
+    text-align: left;
+    margin-bottom: 2rem;
+    width: 100%;
+    align-self: flex-start;
+}
+
+.welcome-title {
+    font-size: 42px;
+    font-weight: bold;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.welcome-subtitle {
+    font-size: 16px;
+    color: var(--gray);
+    font-weight: 500;
+}
+
+/* Fix login container alignment to match text */
+.login-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-left: 120px;
+    padding: 1rem 1rem 1rem 120px;
+    width: 90%;
+    max-width: 550px;
+    background-color: var(--white);
+    box-shadow: none;
+    align-self: flex-start;
+}
+
+.login-form {
+    width: 100%;
+    text-align: left;
+}
+
+/* Fix input group styling */
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+/* Position labels inside inputs */
+.form-group label {
+    display: block;
+    font-weight: 500;
+    position: absolute;
+    left: 15px;
+    font-size: 16px;
+    color: #A6A6A6;
+    text-align: left;
+    z-index: 2;
+    pointer-events: none;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+/* Label animation when input is focused or has value */
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+    top: 8px;
+    font-size: 0.8rem;
+    transform: none;
+}
+
+/* Adjust input padding to make space for the label */
+.form-group input {
+    width: 100%;
+    padding: 30px 15px 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    height: 60px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Add focus styles for better user experience */
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 2px rgba(5, 90, 171, 0.1);
+}
+
+/* Ensure the placeholder is not visible to prevent conflict with the label */
+.form-group input::placeholder {
+    color: transparent;
+}
+
+.registration-form input::placeholder {
+    font-size: 14px;
+}
+
+/* Password toggle button styles */
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    transition: opacity 0.2s ease;
+}
+
+.password-toggle:hover {
+    opacity: 0.7;
+}
+
+.eye-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.form-group::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 60px;
+    width: 6px;
+    background-color: var(--primary-blue);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    z-index: 1;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.remember-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.remember-container input {
+    margin: 0;
+}
+
+.remember-container label {
+    color: var(--gray);
+    font-size: 14px;
+    margin: 0;
+    display: block;
+}
+
+.forgot-password {
+    color: var(--primary-blue);
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.forgot-password:hover {
+    color: var(--green);
+    text-decoration: underline;
+}
+
+.login-button_register {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #0d6efd;
+  text-decoration: underline;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.login-button_register:hover {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Add transitions to buttons and inputs */
+.login-button {
+    width: 100%;
+    background-color: var(--primary-blue);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 4px;
+    height: 50px;
+}
+
+.login-button:hover {
+    background-color: var(--hover-blue);
+}
+
+.form-group input:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(5, 90, 171, 0.1);
+}
+
+/* Center button text */
+.register-button {
+    width: 100%;
+    background-color: var(--green);
+    border: 1px solid var(--green);
+    color: var(--white);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 4px;
+    height: 50px;
+}
+
+.register-button:hover {
+    background-color: var(--hover-green);
+    color: var(--white);
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 14px;
+    margin-top: 0.5rem;
+}
+
+/* Password validation styles */
+.password-error {
+    border: 1px solid var(--error-red) !important;
+    box-shadow: 0 0 3px var(--error-red);
+}
+
+.password-match-warning {
+    color: var(--error-red);
+    font-size: 13px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .login-page {
+        flex-direction: column;
+        height: auto;
+        min-height: 100%;
+    }
+    .login-left, .login-right {
+        width: 100%;
+    }
+    
+    .login-right {
+        min-height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        display: none;
+        overflow-y: auto;
+    }
+    .welcome-container, .login-container {
+        padding: 1rem;
+        width: 100%;    
+    }
+
+    .registration-container {
+        position: static;
+        width: 92% !important;
+        max-width: 100% !important;
+        margin: 20px 15px 15px 15px !important;
+        padding: 1.5rem !important;
+        height: auto;
+        overflow-y: auto;
+        border-radius: 0;
+    }
+
+    /* Asegurar que el body y html no bloquean el scroll */
+    html, body {
+        height: 100%;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Asegurar que el contenedor principal puede scrollear */
+    .login-page {
+        overflow: visible;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .registration-container.mobile-visible {
+        display: block;
+        height: auto;
+        max-height: none;
+    }
+    
+    /* Asegurar que los campos de nombre y apellido están alineados correctamente en móvil */
+    .form-row, .name-row {
+        padding: 0 !important;
+        margin: 0 0 15px 0 !important;
+        box-sizing: border-box;
+        width: 100% !important;
+    }
+
+    /* Añadir espacio al final del formulario para asegurar que todo el contenido es accesible */
+    .registration-form {
+        padding-bottom: 50px;
+    }
+}
+
+/* Registration form styles */
+.registration-container {
+    position: relative;
+    width: 70%;
+    max-width: 450px;
+    margin: 2rem auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: none;
+    overflow-y: auto;
+}
+
+.registration-container.active {
+    display: block;
+}
+
+.registration-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.registration-title {
+    font-size: 28px;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.registration-subtitle {
+    font-size: 18px;
+    color: var(--gray);
+    font-weight: 600;
+}
+
+.divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 1rem 0;
+}
+
+.registration-form .form-row {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    flex-wrap: nowrap;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.registration-form .form-field {
+    width: 100%;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="email"],
+.registration-form input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Additional style to fix alignment issues with date/time fields in registration */
+.form-field input[type="date"],
+.form-field input[type="time"] {
+    text-align: left !important;
+    padding-left: 12px !important;
+}
+
+.registration-form .role-label {
+    font-size: 16px;
+    color: #7c7a7a;
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
+.registration-form .role-options {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 4px;
+    background-color: var(--white);
+}
+
+.registration-form .role-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 16px;
+    cursor: pointer;
+    color: #7c7a7a;
+}
+
+.registration-form .role-radio {
+    margin: 0;
+    accent-color: var(--green);
+    width: 18px;
+    height: 18px;
+    -webkit-appearance: none; /* Agregar para Chrome */
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #cccccc;
+    border-radius: 50%;
+    outline: none;
+    position: relative;
+}
+
+.registration-form .role-radio:checked {
+    outline: none !important;
+    border-color: var(--green) !important;
+    background-color: white;
+}
+
+.registration-form .role-radio:checked::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--green);
+}
+
+.registration-form .form-field:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.registration-button {
+    width: 100%;
+    background-color: var(--primary-blue);
+    border: none;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.registration-button:hover {
+    background-color: var(--green);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--black);
+    font-size: 16px;
+}
+
+.login-link a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Animation classes */
+.slide-out-left {
+    animation: slideOutLeft 0.3s forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.3s forwards;
+}
+
+.slide-out-right {
+    animation: slideOutRight 0.3s forwards;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.3s forwards;
+}
+
+@keyframes slideOutLeft {
+    0% { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(-50px); opacity: 0; }
+}
+
+@keyframes slideInRight {
+    0% { transform: translateX(50px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+    0% { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(50px); opacity: 0; }
+}
+
+@keyframes slideInLeft {
+    0% { transform: translateX(-50px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Fade out animation */
+.fade-out {
+    animation: fadeOut 0.3s forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Success message styles */
+.success-message {
+    padding: 1rem;
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    color: #3c763d;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* Password toggle styles for registration */
+.password-toggle-register {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-toggle-register:hover {
+    opacity: 0.7;
+}
+
+.registration-form .form-field {
+    position: relative;
+}
+
+/* Estilos para los campos nombre y apellido para mantenerlos alineados correctamente */
+.name-row {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 0 15px 0 !important;
+    box-sizing: border-box;
+}
+
+.name-row .form-field {
+    flex: 1 1 50% !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.name-row .form-field input {
+    width: 100% !important;
+    box-sizing: border-box;
+}
+
+/* On mobile, display name and last name fields in separate rows */
+@media (max-width: 768px) {
+    .name-row {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+    
+    .name-row .form-field {
+        width: 100% !important;
+    }
+    
+    /* Ensure the registration form wraps name/apellido fields on mobile */
+    .registration-form .form-row {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+    
+    /* Ensure all form field inputs are left-aligned on mobile */
+    .form-field input[type="date"],
+    .form-field input[type="time"],
+    input.form-control,
+    select.form-control {
+        text-align: left !important;
+        direction: ltr !important;
+    }
+}
+
+/* Fix for black border/outline on radio buttons in Chrome */
+.registration-form .role-radio:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: var(--green) !important;
+}
+
+.registration-form .role-radio:checked {
+    outline: none !important;
+    border-color: var(--green) !important;
+}
+
+/* Override Chrome's default focus styles */
+.registration-form .role-option:focus-within {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Add a subtle highlight to the selected option label */
+.registration-form .role-option input[type="radio"]:checked + label {
+    color: var(--primary-blue);
+    font-weight: 500;
+}
+
+/* Override Chrome's hover outline */
+.registration-form .role-radio:hover,
+.registration-form .role-radio:active {
+    outline: none !important;
+    border: 1px solid var(--green) !important;
+}
+
+/* Fix other input focus styles for consistency */
+.registration-form input:focus,
+.registration-form select:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(5, 90, 171, 0.1) !important;
+    border-color: var(--primary-blue) !important;
+}

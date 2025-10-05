@@ -1,0 +1,54 @@
+# SSL Certificates - Must be generated locally by each user
+*.pem
+*.crt
+*.key
+cert.*
+key.*
+
+# Database
+*.sqlite3
+db.sqlite3
+*.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# Pipenv
+Pipfile.lock
+
+# Django
+*.log
+local_settings.py
+db.sqlite3-journal
+staticfiles/
+media/
+
+# Environment variables
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Custom scripts that may contain sensitive data
+create_superuser.py
