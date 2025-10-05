@@ -265,8 +265,8 @@ Antes de comenzar, asegúrate de tener instalado:
 ### 1. Clonar el Repositorio
 
 ```powershell
-git clone <url-del-repositorio>
-cd "Proyecto Integrador"
+git clone https://github.com/Marianponguta/Identificacion-de-Recien-Nacidos.git
+cd "Identificacion-de-Recien-Nacidos"
 ```
 
 ### 2. Configuración del Backend
